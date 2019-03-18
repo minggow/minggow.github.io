@@ -108,16 +108,6 @@ navs:
     label: Java
     target: _self
 
-  -
-    href: /archives.html
-    label: Archives
-    target: _self
-
-  -
-    href: /about.html
-    label: About
-    target: _self
-
 
 # labels. my blog key words
 labels:
