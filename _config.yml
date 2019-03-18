@@ -67,6 +67,11 @@ menus:
     label: 架构
     target: _self
 
+  -
+    href: /archives.html
+    label: Archives
+    target: _self
+
 
   -
     href: /about.html
