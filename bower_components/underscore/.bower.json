@@ -15,7 +15,7 @@
     "*.yml",
     "CNAME",
     "index.html",
-    "favicon.ico",
+    "favicon.png",
     "CONTRIBUTING.md",
     ".*",
     "component.json",
