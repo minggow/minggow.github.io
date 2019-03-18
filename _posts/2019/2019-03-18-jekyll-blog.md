@@ -1,21 +1,10 @@
 ---
 layout: post
-title:
+title: jeskll博客
 category: other
 tags: [other]
 no-post-nav: true
 ---
-
-<!-- GFM-TOC -->
-* [1 什么是Jekyll](#jekyll定义)
-* [2 jekyll安装](#jekyll安装)
-    * [2.1 安装ruby](#安装ruby)
-    * [2.2 更新gem](#更新gem)
-    * [2.3 安装jekyll](#安装jekyll)
-* [3 Yummy-Jekyll主题](#Yummy-Jekyll主题)
-* [4 使用总结](#使用总结)
-
-<!-- GFM-TOC -->
 
 # jekyll定义
 jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，不需要数据库支持。但是可以配合第三方服务,例如Disqus。最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。
