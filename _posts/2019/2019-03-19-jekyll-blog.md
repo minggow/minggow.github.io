@@ -1,3 +1,10 @@
+---
+layout: post
+title:
+category: other
+tags: [other]
+no-post-nav: true
+---
 <!-- GFM-TOC -->
 * [1 什么是Jekyll](#jekyll定义)
 * [2 jekyll安装](#jekyll安装)
