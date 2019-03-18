@@ -121,15 +121,6 @@ navs:
 # labels. my blog key words
 labels:
 
-  -
-    href: /fastdfs.html
-    label: FastDFS
-    target: _blank
-
-  -
-    href: /mongodb.html
-    label: MongoDB
-    target: _blank
 
   -
     href: /docker.html
