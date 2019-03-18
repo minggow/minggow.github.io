@@ -28,7 +28,7 @@ no-post-nav: true
 	- 2007年由facebook贡献到apache基金，08年5约进入apache孵化器
 
 # 3 Thrift协议层级结构
-![Thrift架构图](../../assets/images/2019/03/thrift01.png)
+![Thrift架构图](/assets/images/2019/03/thrift01.png)
 
 **Thrift框架实际上实现了C/S通信模型**
 
@@ -55,14 +55,14 @@ no-post-nav: true
 * Thrift服务端的实现，目前主要有TSimpleServer、TNonblockingServer、THsHaServer、TThreadPoolServer、TThreadSelectorServer的实现，当前生产环境中主要使用的是TThreadPoolServer的实现。
 
 ### 4.1.1 TSimpleServer
-![TSimpleServer工作流程](../../assets/images/2019/03/thrift02.svg)
+![TSimpleServer工作流程](/assets/images/2019/03/thrift02.svg)
 
 TSimpleServer的工作模式最简单地阻塞IO，一次只能接收和处理一个Socket连接，效率比较低，生产中并不会使用这种Server的实现
 
 ### 4.1.2 TNonblockingServer
 
 非阻塞服务模式实现，对所有客户端的调用几乎是公平，该服务模式采用的是单线程工作，但采用的时NIO的实现方式。
-![TNonBlockingServer工作流程](../../assets/images/2019/03/thrift03.svg)
+![TNonBlockingServer工作流程](/assets/images/2019/03/thrift03.svg)
 
 - 该工作模式效率提升主要体现在IO多路复用上, 采用nio同时监听多个socket的状态变化
 - 仍然采用单线程顺序执行，在业务处理复杂和耗时的情况下，效率仍然是不高的
@@ -70,7 +70,7 @@ TSimpleServer的工作模式最简单地阻塞IO，一次只能接收和处理�
 ### 4.1.3 THsHaServer
 半同步半异步模式，THsHaServer是TNonblockingServer的子类，因为TNonblockingServer仍然采用一个县城完成socket的监听和业务处理，效率相对较低。THsHaServer引入了线程池专门进行业务处理
 
-![THsHaServer工作流程](../../assets/images/2019/03/thrift04.svg)
+![THsHaServer工作流程](/assets/images/2019/03/thrift04.svg)
 
 - 主线程只读取数据，业务处理交给线程池完成处理，主线程效率大大提升
 - 主线程仍然要对所有的socket监听和读取，当并发大和发送数据较多的情况下，监听的socket请求不能及时接受
@@ -79,7 +79,7 @@ TSimpleServer的工作模式最简单地阻塞IO，一次只能接收和处理�
 
 TThreadPoolServer模式采用阻塞socket方式工作，主线程负责阻塞监听新socket，业务处理交给线程池处理
 
-![TThreadPoolServer工作流程](../../assets/images/2019/03/thrift05.svg)
+![TThreadPoolServer工作流程](/assets/images/2019/03/thrift05.svg)
 
 - 线程池模式中，数据读取和业务处理都交给线程池处理，主线程只负责监听，因此在并发量较大情况下也能及时接受
 - 线程池处理模式，比较适合服务端能够预知多少客户端并发的情况，这样每个请求都能够及时处理，性能也相对理想
@@ -93,7 +93,7 @@ ThreadSelectorServer是目前Thrift提供的最高级的工作模式，其内部
 - 一个负载均衡器(SelectorThreadLocadBalancer)，主要用于accept thread接收到新socket请求时，决定分配请求到selector thread
 - ExecutorService工作线程池，用于业务处理，在selector thread 读取socket请求数据，交给业务线程池具体执行
 
-![TThreadSelectorServer](../../assets/images/2019/03/thrift06.svg)
+![TThreadSelectorServer](/assets/images/2019/03/thrift06.svg)
 
 - 专门的accept thread用于接收新socket请求，可以接受大量的请求
 - socket请求经过负载均衡器分散到selector thread，可以应对io读写较大的情况
@@ -218,7 +218,7 @@ B是7位数字[0x00,0x7F]，n是VLQ八位字节的位置，其中B 0是最不重
 
 106903转化为VLQ字节码例子
 
-![VLQ字节码转换](../../assets/images/2019/03/thrift07.png)
+![VLQ字节码转换](/assets/images/2019/03/thrift07.png)
 
 其他转换例子
 
@@ -409,7 +409,7 @@ public class TBaseAsyncProcessor<I> implements TAsyncProcessor, TProcessor {
 
 HelloServiceServer启动过程和客户端调用过程
 
-![Server端调用过程](../../assets/images/2019/03/thrift08.png)
+![Server端调用过程](/assets/images/2019/03/thrift08.png)
 
 **过程详解** 
 
@@ -421,7 +421,7 @@ HelloServiceServer启动过程和客户端调用过程
 
 **HelloServiceClient调用过程和接收返回结果过程** 
 
-![Client端调用过程](../../assets/images/2019/03/thrift09.png)
+![Client端调用过程](/assets/images/2019/03/thrift09.png)
 
 1. 程序调用Hello.Client的helloVoid方法
 2. 在helloVoid中通过send_helloVoid发送对服务端请求，通过recv_helloVoid方法接收对服务请求后返回的结果
@@ -435,7 +435,7 @@ HelloServiceServer启动过程和客户端调用过程
 
 ### 6.1.1 对比结果
 
-![Thrift-Size-Comparing](../../assets/images/2019/03/thrift10.png)
+![Thrift-Size-Comparing](/assets/images/2019/03/thrift10.png)
 
 ### 6.1.2 结果汇总
 
@@ -453,7 +453,7 @@ REST — XML |	836 |	200.72%
 
 ### 6.2.1 运行对比
 
-![Thrift-Runtime_Comparing](../../assets/images/2019/03/thrift11.png)
+![Thrift-Runtime_Comparing](/assets/images/2019/03/thrift11.png)
 
 ### 6.2.2 结果汇总
 
