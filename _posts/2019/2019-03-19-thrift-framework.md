@@ -1,3 +1,12 @@
+---
+layout: post
+title: Thrift框架概览
+category: other
+tags: [other]
+no-post-nav: true
+---
+
+
 # 1 前言
 我们对于Thrift或许不陌生了，在平时的开发中都会或多或少听到关于Thrift的博客或者文档。提到Thrift往往和“性能”、“跨语言”、“RPC”等一些关键字关联在一起，那到底Thrift到底是什么呢？也许我们很难用一句话说的清楚，但通过一些描述Thrift的名词，我们对Thrift有了初步的了解，但是Thrift到底是什么？它又是如何做到“高性能”、“跨语言跨平台”的呢？带着这些疑问，我们去了解Thrift的底层实现。
 *** 
