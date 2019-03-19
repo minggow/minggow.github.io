@@ -189,20 +189,20 @@ skill_mobile_app_keywords: [vuejs, hyhird app]
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 
-#disqus:
-#    username: ityouknow
-## https://imsun.net/posts/gitment-introduction/
-#gitment:
-#    owner: ityouknow
-#    repo: blog-comments
-#    oauth:
-#        client_id: 61bfc53d957e74e78f8f
-#        client_secret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
-## https://github.com/gitalk/gitalk#install
-#gitalk:
-#    owner: ityouknow
-#    repo: blog-comments
-#    clientID: 61bfc53d957e74e78f8f
-#    clientSecret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
-## 在使用其它评论组件时可点击显示 Disqus
-#lazy_load_disqus : true
+disqus:
+    username: minggow
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: minggow
+    repo: blog-comments
+    oauth:
+        client_id: e4aedc87b5ee93b1693a
+        client_secret: f94f889546774064dfe6f871e568ede1d3842f0
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: minggow
+    repo: blog-comments
+    clientID: e4aedc87b5ee93b1693a
+    clientSecret: f94f889546774064dfe6f871e568ede1d3842f0
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : true
