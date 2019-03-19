@@ -1,9 +1,9 @@
 ---
 layout: post
-title: MySQL企业版产品文档
+title: MySQL企业版概述
 category: other
 tags: [other]
-excerpt:  整体介绍MySQL企业版特性
+excerpt:  整体介绍MySQL企业版
 ---
 # 概括
 MySQL提供了全面的高级功能、管理工具和技术支持，实现了高水平的 MySQL可扩展性、安全性、可靠性和无故障运行时间。
@@ -47,9 +47,10 @@ MySQL Query Analyzer 提供了一个包含查询活动和执行详情的整合�
 MySQL Workbench 是一个统一的可视化开发和管理平台，该平台提供了许多高级工具，可支持数据库建模和设计、查询开发和测试、服务器配置和监视、用户和安全管理、备份和恢复自动化、审计数据检查以及向导驱动的数据库迁移。
 
 # 总结
-关键词：高可用、容灾备份、可扩展、安全性
+关键词：**高可用**、**容灾备份**、**可扩展**、**安全性**
 
 
-#参考
+参考
+
 [MySQL 企业版](https://www.mysql.com/cn/products/enterprise/mysql-datasheet.zh.pdf)
 
