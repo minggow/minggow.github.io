@@ -1,6 +1,6 @@
 ---
 layout: post
-title: jeskll博客
+title: Jeskll 博客
 category: other
 tags: [other]
 excerpt:  新手搭建jeskll博客

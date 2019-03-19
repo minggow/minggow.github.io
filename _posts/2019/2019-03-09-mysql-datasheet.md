@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MySQL功能概述
+title: MySQL 特性介绍
 category: other
 tags: [other]
 excerpt:  整体介绍MySQL功能特性

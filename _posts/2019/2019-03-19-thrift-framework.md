@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Thrift框架概览
+title: Thrift 框架介绍
 category: other
 tags: [other]
 excerpt:  整体介绍thrift框架
