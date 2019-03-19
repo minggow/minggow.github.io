@@ -3,7 +3,7 @@ layout: post
 title: Thrift框架概览
 category: other
 tags: [other]
-no-post-nav: true
+excerpt:  整体介绍thrift框架
 ---
 
 
