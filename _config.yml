@@ -194,14 +194,14 @@ disqus:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: minggow
-    repo: minggow/minggow.github.io
+    repo: minggow.github.io
     oauth:
         client_id: e4aedc87b5ee93b1693a
         client_secret: f94f889546774064dfe6f871e568ede1d3842f05
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: minggow
-    repo: minggow/minggow.github.io
+    repo: minggow.github.io
     clientID: e4aedc87b5ee93b1693a
     clientSecret: f94f889546774064dfe6f871e568ede1d3842f05
 # 在使用其它评论组件时可点击显示 Disqus
