@@ -3,7 +3,7 @@ layout: post
 title: MySQL 存储引擎
 category: other
 tags: [other]
-excerpt:  MySQL 存储引擎介绍
+excerpt:  MySQL 存储引擎
 ---
 
 ## MySQL 存储引擎是什么
