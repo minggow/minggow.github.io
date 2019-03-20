@@ -57,15 +57,15 @@ paginate_path: 'page:num'
 menus:
 
 
-  -
-    href: /life.html
-    label: 故事
-    target: _self
-
-  -
-    href: /arch.html
-    label: 架构
-    target: _self
+#  -
+#    href: /life.html
+#    label: 故事
+#    target: _self
+#
+#  -
+#    href: /arch.html
+#    label: 架构
+#    target: _self
 
   -
     href: /archives.html
@@ -86,76 +86,49 @@ navs:
     href: /
     label: Home
 
-  -
-    href: /spring-boot.html
-    label: Spring Boot
-    target: _self
-    subnav:
-
-      -
-        subHref: /spring-boot.html
-        subLabel: Spring Boot
-
-
-  -
-    href: /spring-cloud.html
-    label: Spring Cloud
-    target: _self
-    subnav:
-
-      -
-        subHref: /spring-cloud.html
-        subLabel: Spring Cloud
-
-  -
-    
-    href: /java.html
-    label: Java
-    target: _self
-
 
 # labels. my blog key words
 labels:
 
 
-  -
-    href: /docker.html
-    label: Docker
-    target: _blank
-
-  -
-    href: /open-source.html
-    label: Code  
-    target: _blank
-
-  -
-    href: /it.html
-    label: It 
-    target: _blank
-
-  -
-    href: /python.html
-    label: Python  
-    target: _blank
+#  -
+#    href: /docker.html
+#    label: Docker
+#    target: _blank
+#
+#  -
+#    href: /open-source.html
+#    label: Code
+#    target: _blank
+#
+#  -
+#    href: /it.html
+#    label: It
+#    target: _blank
+#
+#  -
+#    href: /python.html
+#    label: Python
+#    target: _blank
 
 
 # selected articles
 classes:
 
-  -
-    href: /life.html
-    name: 我的故事
-    describe: 生活就是故事，故事就是生活
-
-  -
-    href: /arch.html
-    name: 架构师之路
-    describe: 一个架构师的自我修养
-
-  -
-    href: /java.html
-    name: Java 系列文章
-    describe: Java 之根基，Java 程序员必学
+#  -
+#    href: /life.html
+#    name: 我的故事
+#    describe: 生活就是故事，故事就是生活
+#
+#  -
+#    href: /arch.html
+#    name: 架构师之路
+#    describe: 一个架构师的自我修养
+#
+#  -
+#    href: /java.html
+#    name: Java 系列文章
+#    describe: Java 之根基，Java 程序员必学
 
 
 # ---------------- #
