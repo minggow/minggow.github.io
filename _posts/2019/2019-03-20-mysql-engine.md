@@ -53,9 +53,9 @@ MyISAM的表存储成3个文件。文件的名字与表名相同。拓展名为f
 
 ### 索引结构
 - 主索引结构
-[主索引](/assets/images/2019/03/mysql_engine_myisam_primary.png)
+![主索引](/assets/images/2019/03/mysql_engine_myisam_primary.png)
 - 辅助索引结构
-[辅助索引](/assets/images/2019/03/mysql_engine_myisam_secondary.png)
+![辅助索引](/assets/images/2019/03/mysql_engine_myisam_secondary.png)
 
 ## InnoDB存储引擎
 InnoDB给MySQL的表提供了事务处理、回滚、崩溃修复能力和多版本并发控制的事务安全。在MySQL从3.23.34a开始包含InnnoDB。
@@ -68,9 +68,9 @@ InnoDB还支持外键（FOREIGN KEY）。外键所在的表叫做子表，外键
 
 ### 索引结构
 - 主索引结构
-[主索引](/assets/images/2019/03/mysql_engine_innodb_primary.png)
+![主索引](/assets/images/2019/03/mysql_engine_innodb_primary.png)
 - 辅助索引结构
-[辅助索引](/assets/images/2019/03/mysql_engine_innodb_secondary.png)
+![辅助索引](/assets/images/2019/03/mysql_engine_innodb_secondary.png)
 
 ## 比较总结
 - 事务：InnoDB 是事务型的，可以使用 Commit 和 Rollback 语句。
@@ -80,14 +80,12 @@ InnoDB还支持外键（FOREIGN KEY）。外键所在的表叫做子表，外键
 - 崩溃恢复：MyISAM 崩溃后发生损坏的概率比 InnoDB 高很多，而且恢复的速度也更慢。
 - 其它特性：MyISAM 支持压缩表和空间数据索引
 
-[检索过程比较](/assets/images/2019/03/mysql_engine_index_process.png)
-
-
+![检索过程比较](/assets/images/2019/03/mysql_engine_index_process.png)
 
 
 参考：
-[史上最简单MySQL教程详解（进阶篇）之存储引擎介绍及默认引擎设置](https://blog.csdn.net/m0_37888031/article/details/80664138)
-
-https://blog.csdn.net/len9596/article/details/80206532
-https://blog.csdn.net/kang389110772/article/details/51233897
-https://www.cnblogs.com/wcwen1990/p/6655416.html
+- [史上最简单MySQL教程详解（进阶篇）之存储引擎介绍及默认引擎设置](https://blog.csdn.net/m0_37888031/article/details/80664138)
+- [Mysql存储引擎比较](https://blog.csdn.net/len9596/article/details/80206532)
+- [MySQL存储引擎](https://blog.csdn.net/kang389110772/article/details/51233897)
+- [四种mysql存储引擎](https://www.cnblogs.com/wcwen1990/p/6655416.html)
+- [MySql两种存储引擎的区别](https://www.cnblogs.com/wangdake-qq/p/7358322.html)
