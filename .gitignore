@@ -3,3 +3,9 @@ _drafts
 .sass-cache
 .jekyll-metadata
 .idea
+
+*/*.iml
+*/*.ipr
+*/*.iws
+*/build
+.DS_Store
