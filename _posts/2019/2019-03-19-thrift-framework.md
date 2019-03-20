@@ -7,10 +7,10 @@ excerpt:  整体介绍thrift框架
 ---
 
 
-# 1 前言
+## 1 前言
 我们对于Thrift或许不陌生了，在平时的开发中都会或多或少听到关于Thrift的博客或者文档。提到Thrift往往和“性能”、“跨语言”、“RPC”等一些关键字关联在一起，那到底Thrift到底是什么呢？也许我们很难用一句话说的清楚，但通过一些描述Thrift的名词，我们对Thrift有了初步的了解，但是Thrift到底是什么？它又是如何做到“高性能”、“跨语言跨平台”的呢？带着这些疑问，我们去了解Thrift的底层实现。
 *** 
-# 2 Thrift是什么
+## 2 Thrift是什么
 - 英文释义
 节俭；节约
 - 官网定义
@@ -27,7 +27,7 @@ excerpt:  整体介绍thrift框架
 	- 最初由facebook开发用作系统间各语言之间的RPC通信。 
 	- 2007年由facebook贡献到apache基金，08年5约进入apache孵化器
 
-# 3 Thrift协议层级结构
+## 3 Thrift协议层级结构
 ![Thrift架构图](/assets/images/2019/03/thrift01.png)
 
 **Thrift框架实际上实现了C/S通信模型**
@@ -38,7 +38,7 @@ excerpt:  整体介绍thrift框架
 - TTransport为传输层，主要实现了阻塞IO和非阻塞IO的实现
 - 底层IO传输，主要使用socket、http等一些传输协议
  
-# 4 Thrift框架
+## 4 Thrift组件
 **Thrift的核心组件, 主要包含以下几个方面**
 
 - IDL服务描述组件,负责完成跨平台和跨语言(针对不同语言完成了Server层和Client代码的生成)
@@ -47,19 +47,19 @@ excerpt:  整体介绍thrift框架
 - TTransport 传输组件
 - TProcessor 服务调用组件，完成对服务实现的调用
 
-## 4.1 Thrift Server
+### 4.1 Thrift Server
 * Thrift Server的职责是将Thrift支持的各种特性结合起来。
 	- 创建传输Transport并为Transport创建输入或输出TProtocal
 	- 创建基于输入或输出的处理器processor(process调用服务端业务实现)
 	- 等待连接建立并将数据交给处理器processor，处理完成返回client
 * Thrift服务端的实现，目前主要有TSimpleServer、TNonblockingServer、THsHaServer、TThreadPoolServer、TThreadSelectorServer的实现，当前生产环境中主要使用的是TThreadPoolServer的实现。
 
-### 4.1.1 TSimpleServer
+#### 4.1.1 TSimpleServer
 ![TSimpleServer工作流程](/assets/images/2019/03/thrift02.svg)
 
 TSimpleServer的工作模式最简单地阻塞IO，一次只能接收和处理一个Socket连接，效率比较低，生产中并不会使用这种Server的实现
 
-### 4.1.2 TNonblockingServer
+#### 4.1.2 TNonblockingServer
 
 非阻塞服务模式实现，对所有客户端的调用几乎是公平，该服务模式采用的是单线程工作，但采用的时NIO的实现方式。
 ![TNonBlockingServer工作流程](/assets/images/2019/03/thrift03.svg)
@@ -67,7 +67,7 @@ TSimpleServer的工作模式最简单地阻塞IO，一次只能接收和处理�
 - 该工作模式效率提升主要体现在IO多路复用上, 采用nio同时监听多个socket的状态变化
 - 仍然采用单线程顺序执行，在业务处理复杂和耗时的情况下，效率仍然是不高的
 
-### 4.1.3 THsHaServer
+#### 4.1.3 THsHaServer
 半同步半异步模式，THsHaServer是TNonblockingServer的子类，因为TNonblockingServer仍然采用一个县城完成socket的监听和业务处理，效率相对较低。THsHaServer引入了线程池专门进行业务处理
 
 ![THsHaServer工作流程](/assets/images/2019/03/thrift04.svg)
@@ -75,7 +75,7 @@ TSimpleServer的工作模式最简单地阻塞IO，一次只能接收和处理�
 - 主线程只读取数据，业务处理交给线程池完成处理，主线程效率大大提升
 - 主线程仍然要对所有的socket监听和读取，当并发大和发送数据较多的情况下，监听的socket请求不能及时接受
 
-### 4.1.4 TThreadPoolServer
+#### 4.1.4 TThreadPoolServer
 
 TThreadPoolServer模式采用阻塞socket方式工作，主线程负责阻塞监听新socket，业务处理交给线程池处理
 
@@ -85,7 +85,7 @@ TThreadPoolServer模式采用阻塞socket方式工作，主线程负责阻塞监
 - 线程池处理模式，比较适合服务端能够预知多少客户端并发的情况，这样每个请求都能够及时处理，性能也相对理想
 - 线程池模式的处理能够受限于线程池的工作能力，在高并发情况下，新的请求只能够排队等待
 
-### 4.1.5 TThreadSelectorServer
+#### 4.1.5 TThreadSelectorServer
 ThreadSelectorServer是目前Thrift提供的最高级的工作模式，其内部主要的工作流程如下
 
 - 一个accept thread线程对象，专门用于处理监听socket新连接
@@ -99,13 +99,13 @@ ThreadSelectorServer是目前Thrift提供的最高级的工作模式，其内部
 - socket请求经过负载均衡器分散到selector thread，可以应对io读写较大的情况
 - executor工作线程池，具体执行业务逻辑，可以发挥服务端最大的工作能力
 
-## 4.2 TTransport 
+### 4.2 TTransport 
 - TTransport传输层提供了和网络之间交互的读写抽象，这使得Thrift能够将底层传输和系统其他部分(例如序列化和反序列化)分离开来。
 - Transport暴露的接口主要有open、close、read、write、flush等
 - 除了Transport提供的上卖弄接口，Thrift提供了用于接收和创建原始对象的ServerTransport接口，主要用于服务端为传入的链接创建新的传输对象。open、listen、accept和close等
 - 同时Thrift还提供了文件传输和HTTP传输等传输实现
 
-### 4.2.1 客户端Transport实现
+#### 4.2.1 客户端Transport实现
 * 客户端的传输实现主要分为两类，阻塞传输实现和非阻塞传输实现
 * 阻塞传输实现主要在TIOStreamTransport和TSocket中实现
 	- TIOStreamTransport是最常用的传输层实现，它通过一个输入流和输出流实现了传输层的所有操作，其和Java的结构完美兼容(Java实现了各种IO流)
@@ -113,11 +113,11 @@ ThreadSelectorServer是目前Thrift提供的最高级的工作模式，其内部
 * 阻塞传输相关类TNonblockingTransport(接口定义)和TNonblockingSocket(java nio中SocketChannel的包装实现)
 * THttpClient是http的传输实现，主要用于服务端是HTTP服务，作为thrift的客户端的请求读取实现
 
-### 4.2.2 服务端Transport实现
+#### 4.2.2 服务端Transport实现
 * TServerSocket是通过包装ServerSocket的传输实现，是一种阻塞的传输实现
 * TNonblockserServerSocket是一种通过包装nio的ServerSocketChannel的实现，基础传输还是ServerSocket
 
-### 4.2.3 缓存传输实现
+#### 4.2.3 缓存传输实现
 * TMemoryInputTransport 封装了字节数组byte[]作为输入流的封装，从系统缓冲区读取数据，不支持写缓存。TMemoryBuffer则通过TByteArrayOutputStream作为输出流的封装，支持缓存读也支持往缓冲区写入数据。
 * TFrameTransport是一种缓冲的Transport实现，它通过在每个消息前都有一个4个字节的帧消息来保证每次读取完整的消息
 	- 封装TMemoryInputTransport作为输入流、TByteArrayOutputStream作为输出流,作为内存缓冲区的封装
@@ -125,19 +125,19 @@ ThreadSelectorServer是目前Thrift提供的最高级的工作模式，其内部
 	- 在读取消息时，也会先读取4byte的长度，然后在读取消息体
 * TFastFramedTransport是一种内存利用率更高的内存读写实现，它使用自动增长的`byte[](长度不够时才new)`，而不是每次都new一个byte[],从而提升了内存的使用率。其余实现和TFramedTransport一样，也会有消息头作为帧来记录消息的长度
 
-### 4.2.4 其他传输实现介绍
+#### 4.2.4 其他传输实现介绍
 * TFileTransport 文件传输实现，基于Event的异步实现
 * TZlibTransport 基于zlib库的解压缩传输实现，通过压缩减少网络传输
 * TSaslTransport 是基于Simple Authentication Security Layer的认证实现
 
-### 4.2.5 传输层实现总结
+#### 4.2.5 传输层实现总结
 
 * Thrift的传输层采用装饰器模式实现了包装IO流，可以通过包装流和节点流的概念区分各种Transport实现
 * 节点流表示自身采用byte[]提供IO读写的实现，包装流表示封装类其他传输实现提供IO的读写
 * 包装流主要是TFrame的传输实现，其实现是在写完消息flush时，回家上4byte的消息头，读消息的时候也会读取4byte的消息头
 * Thrift协议和具体的传输对象绑定，协议使用具体的Transport来实现数据的读取
 
-## 4.3 TProtocol
+### 4.3 TProtocol
 协议抽象定义了将内存数据映射到有线格式的机制。换句话说，协议规定了数据类型如何使用底层传输对自身进行编码/解码。因为，协议实现了管理编码方案并负责(反)序列化。这里指的序列化协议的例子包含JSON、XML、纯文本、紧凑二进制等。
 Thrift实现的协议如下：
 
@@ -145,7 +145,7 @@ Thrift实现的协议如下：
 - 压缩实现 [THRIFT-110](https://issues.apache.org/jira/browse/THRIFT-110)  
 - JSON实现
 
-### 4.3.1 TBinaryProtocol
+#### 4.3.1 TBinaryProtocol
 是一种字节流读取的实现，String类型读取是通过nio实现，其余类型通过原生数据直接读取实现。核心代码如下：
 
 ```
@@ -177,7 +177,7 @@ Thrift实现的协议如下：
   }
 ```
 
-### 4.3.2 TCompactProtocol
+#### 4.3.2 TCompactProtocol
 TCompactProtocol协议作为TBinaryProtocol协议的升级强化版，都作为二进制编码传输方式，采用了一种乐器MIDI文件的编码方法。详细描述参见 [THRIFT-110](https://issues.apache.org/jira/browse/THRIFT-110)
 
 1. ZigZag——有符号数编码
@@ -260,12 +260,12 @@ private void writeVarint32(int n) throws TException {
 
 > [variable-length-quantiry](https://en.wikipedia.org/wiki/Variable-length_quantity)
 
-### 4.3.3 TJSONProtocal实现
+#### 4.3.3 TJSONProtocal实现
 
 - TJSONProtocol 和 TSimpleJSONProtocol 两种实现。
 - 实现比较简单，不再赘述。
 
-## 4.4 Processor
+### 4.4 Processor
 - Processor封装了从输入流中读取数据并写入输出流的能力。
 - 输入流和输出流由协议对象表示，处理结构非常接单
 
@@ -279,7 +279,7 @@ interface TProcessor {
 - 处理器实际上是从线路（通过协议输入流）读取数据，然后委托给处理程序(用户实现执行)
 - 处理程序结果，通过线路（通过协议输出流），写入响应中，客户端得到结果
 
-### 4.4.1 TBaseProcessor实现
+#### 4.4.1 TBaseProcessor实现
 
 ```
 public abstract class TBaseProcessor<I> implements TProcessor {
@@ -314,7 +314,7 @@ public abstract class TBaseProcessor<I> implements TProcessor {
   }
 }
 ```
-### 4.4.2 TBaseAsyncProcessor
+#### 4.4.2 TBaseAsyncProcessor
 
 ```
 public class TBaseAsyncProcessor<I> implements TAsyncProcessor, TProcessor {
@@ -403,9 +403,9 @@ public class TBaseAsyncProcessor<I> implements TAsyncProcessor, TProcessor {
 * AsyncFrameBuffer是FrameBuffer的子类，主要功能和FrameBuffer，主要实现了异步的处理器的读写
 
 
-# 5 Thrfit 服务过程解析
+## 5 Thrfit 服务过程解析
 
-## 5.1 Server端
+### 5.1 Server端
 
 HelloServiceServer启动过程和客户端调用过程
 
@@ -417,7 +417,7 @@ HelloServiceServer启动过程和客户端调用过程
 2. 当接收到客户端的调用请求，服务端创建新线程处理请求，原线程再次进入阻塞状态
 3. 新线程中同步TBinaryProtocol协议读取消息内容，调用HelloServerImpl的helloVoid方法，并将helloVoid_result中传回客户端
 
-## 5.2 Client端
+### 5.2 Client端
 
 **HelloServiceClient调用过程和接收返回结果过程** 
 
@@ -427,17 +427,17 @@ HelloServiceServer启动过程和客户端调用过程
 2. 在helloVoid中通过send_helloVoid发送对服务端请求，通过recv_helloVoid方法接收对服务请求后返回的结果
 3. 
 
-# 6 Thrift性能对比
+## 6 Thrift性能对比
 - 对比对象 Thrift 二进制协议和压缩协议、谷歌ProtoBuf、RMI、REST-JSON和REST-XML
 - 对比维度，传输数据大小、运行时间和CPU负载
 
-## 6.1 传输大小对比
+### 6.1 传输大小对比
 
-### 6.1.1 对比结果
+#### 6.1.1 对比结果
 
 ![Thrift-Size-Comparing](/assets/images/2019/03/thrift10.png)
 
-### 6.1.2 结果汇总
+#### 6.1.2 结果汇总
 
 Method	| Size*	| % Larger than TCompactProtocol
 ---|---|---
@@ -448,14 +448,14 @@ RMI (using Object Serialization for estimate)**	| 905 | 225.54%
 REST — JSON |	559 |	101.08%
 REST — XML |	836 |	200.72%
 
-### 6.1.3 结论 
+#### 6.1.3 结论 
 与RMI和基于XML的REST相比，Thrift在其有效负载的大小方面具有明显的优势。来自Google的protobuf协议实际上是相同的，因为协议缓冲区数量不包含消息传递开销。
 
-### 6.2.1 运行对比
+#### 6.2.1 运行对比
 
 ![Thrift-Runtime_Comparing](/assets/images/2019/03/thrift11.png)
 
-### 6.2.2 结果汇总
+#### 6.2.2 结果汇总
 
 Server | CPU %	| Avg Client CPU % | 	Avg Wall Time
 ---|---|---|---
@@ -469,27 +469,27 @@ Thrift — TCompactProtocol |	30.00% |	22.50% | 01:05.12
 * 平均时间不包括第一次运行，以考虑服务器预热。数字越小越好。
 * WALL TIME 挂钟时间，实际运行时间，包括其他进行时间片占用和IO阻塞时间
 
-### 6.2.3 结果分析
+#### 6.2.3 结果分析
 
 1. 在WALL-TIME上，REST和RMI的表现明显不如Thift，如TCompactProtocol花费不到20%的时间比REST-XML传输测试一样的数据。可见二进制相比文本传输具备更高的性能，所有尽管RMI有效负载比Thrift大很多，但也是明显优于基于JSON的REST服务的
 2. 虽然Thrift和Protocol Buffers在服务端CPU占比最高，但REST客户端CPU占比最高。RPC框架会降负载平衡放在服务端和客户端，协议缓冲区在其中平衡其负载。服务端一些额外的CPU开销是编解码转化引起的。
 
-## 6.3 对比结论
+### 6.3 对比结论
 
 1. Thrift是一个强大的RPC框架库，用于创建可从多种语言中调用的高性能服务，比较适合跨语言的内部服务远程调用，在速度和性能上都非常优秀。
 2. 如果是外部调用就会面临安全方面的考验，在防火墙一侧还需要面临端口打开过多的问题。
 
 > [Thrift Features and Non-features](http://jnb.ociweb.com/jnb/jnbJun2009.html)
 
-# 7 Thrift 未来展望
-## 7.1 好的方面
+## 7 Thrift 未来展望
+### 7.1 优势
 - 一站式解决方案，相比protobuf，对于搭建thrift服务和调用，几乎开箱即用
 - 特性丰富，相比其他的rpc。thrift一开始就支持了丰富的数据类型，几乎满足各种业务场景的需要
 - 性能优异，可能不是性能最高的，但排名一定靠前的，基本不会成为系统瓶颈
 - 很多开源项目都支持thrift，如hbase、hive等都有对外标准的thrift多语言支持
 - 对于早期互联网公司，thrift是一个很好地开箱即用的解决方案，性能优异，也经过了时间的检验
 
-## 7.2 坏的方面
+### 7.2 劣势
 - 基本没有官方文档，有些代码注释都不完整，相关的书籍也很少见到，总之缺乏权威的文档和学习资料
 - 前期有一些坑，坑了一些用户。0.6 到 0.7 不兼容，坑了大批早期用户
 - 开源社区不够活跃，bug fix也不是非常积极
