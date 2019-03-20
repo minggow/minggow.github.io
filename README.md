@@ -11,6 +11,8 @@
 
 参考:
 [Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
-[ityouknow.github.io地址](https://github.com/ityouknow/ityouknow.github.io)
+
+[ityouknow.github.io](https://github.com/ityouknow/ityouknow.github.io)
+
 [纯洁的微笑博客](http://www.ityouknow.com)
 
