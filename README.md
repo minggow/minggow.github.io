@@ -6,10 +6,13 @@
 
 芒果美味，繁忙工作之余，芒果个人带来精神的放松和内心的愉悦。
 
-搭建步骤 [新手搭建Jekyll博客](https://minggow.github.io/other/2019/03/18/jekyll-blog.html)
-主题选择 [Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
+搭建步骤:
+[新手搭建Jekyll博客](https://minggow.github.io/other/2019/03/18/jekyll-blog.html)
+主题选择:
+[Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
 
 参考:
+
 [Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
 
 [ityouknow.github.io](https://github.com/ityouknow/ityouknow.github.io)
