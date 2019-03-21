@@ -1,21 +1,14 @@
-# minggow.github.io
+# 个人博客
 
-这是我的个人博客，芒果博客，用于总结工作和技术，记录生活点滴。
+这是我的个人博客项目，里面会记录生活和技术的点点滴滴。
 
-芒果，又名"望果"，即取义"希望之果"，寓意生活充满新鲜、快乐和活力。
 
-芒果美味，繁忙工作之余，芒果个人带来精神的放松和内心的愉悦。
+访问地址：[http://www.ityouknow.com/](http://www.ityouknow.com/)
 
-搭建步骤:
-[新手搭建Jekyll博客](https://minggow.github.io/other/2019/03/18/jekyll-blog.html)
-主题选择:
-[Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
 
-参考:
+博客主题使用:[Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
 
-[Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
 
-[ityouknow.github.io](https://github.com/ityouknow/ityouknow.github.io)
+## 我的微信公众号
 
-[纯洁的微笑博客](http://www.ityouknow.com)
-
+![](http://www.ityouknow.com/assets/images/keeppuresmile_430.jpg)
