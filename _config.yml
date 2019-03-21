@@ -162,16 +162,16 @@ comments_provider: gitalk
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 
-disqus:
-    username: minggow
-# https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: minggow
-    repo: blog-comments
-    oauth:
-        client_id: e4aedc87b5ee93b1693a
-        client_secret: f94f889546774064dfe6f871e568ede1d3842f05
-# https://github.com/gitalk/gitalk#install
+#disqus:
+#    username: minggow
+## https://imsun.net/posts/gitment-introduction/
+#gitment:
+#    owner: minggow
+#    repo: blog-comments
+#    oauth:
+#        client_id: e4aedc87b5ee93b1693a
+#        client_secret: f94f889546774064dfe6f871e568ede1d3842f05
+## https://github.com/gitalk/gitalk#install
 gitalk:
     owner: minggow
     repo: blog-comments
