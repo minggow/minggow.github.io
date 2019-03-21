@@ -80,6 +80,17 @@ InnoDB还支持外键（FOREIGN KEY）。外键所在的表叫做子表，外键
 - 崩溃恢复：MyISAM 崩溃后发生损坏的概率比 InnoDB 高很多，而且恢复的速度也更慢。
 - 其它特性：MyISAM 支持压缩表和空间数据索引
 
+### 存储引擎选择
+- 采用MyISAM
+    - R/W > 100:1 且update相对较少
+    - 并发不高
+    - 表数据量小
+    - 硬件资源有限
+- 采用InooDB引擎
+    - R/W比较少，频繁更新大字段
+    - 表数据量超过1000万，并发高
+    - 安全性和可用性要求高
+
 ![检索过程比较](/assets/images/2019/03/mysql_engine_index_process.png)
 
 
