@@ -12,32 +12,32 @@
                 GitHub
             </a>
         </div> -->
-          <!--<div class="card text-center">-->
-            <!--<ul class="list-inline" style="margin-left: 0;">-->
-               <!--<li>-->
-                <!--<a target="_blank" href="https://github.com/ityouknow">-->
-                  <!--<span class="fa-stack fa-lg">-->
-                    <!--<i class="fa fa-circle fa-stack-2x"></i>-->
-                    <!--<i class="fa fa-github fa-stack-1x fa-inverse"></i>-->
-                  <!--</span>-->
-                <!--</a>-->
-              <!--</li>-->
-              <!--<li>-->
-                <!--<a target="_blank" href="https://www.zhihu.com/people/ityouknow">-->
-                  <!--<span class="fa-stack fa-lg">-->
-                    <!--<i class="fa fa-circle fa-stack-2x"></i>-->
-                    <!--<i class="fa  fa-stack-1x fa-inverse">知</i>-->
-                  <!--</span>-->
-                <!--</a>-->
-              <!--</li>-->
-                  <!--<li>-->
-                <!--<a target="_blank" href="https://weibo.com/ityouknow">-->
-                  <!--<span class="fa-stack fa-lg">-->
-                    <!--<i class="fa fa-circle fa-stack-2x"></i>-->
-                    <!--<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>-->
-                  <!--</span>-->
-                <!--</a>-->
-              <!--</li>-->
+          <div class="card text-center">
+            <ul class="list-inline" style="margin-left: 0;">
+               <li>
+                <a target="_blank" href="https://github.com/ityouknow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.zhihu.com/people/ityouknow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa  fa-stack-1x fa-inverse">知</i>
+                  </span>
+                </a>
+              </li>
+                  <li>
+                <a target="_blank" href="https://weibo.com/ityouknow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
           </ul>
         </div>
         <div class="site-footer-links mobile-hidden">
@@ -45,6 +45,9 @@
             <a href="{{ nav.href }}" title="{{ nav.label }}" target="{{ nav.target | default: _self }}">{{ nav.label }}</a>
             {% endfor %}
         </div>
+<!--         <div class="site-footer-icons">
+               京ICP备15067287号-3
+        </div> -->
         <div class="scrolltop">
             京ICP备15067287号-3
             <a href="javascript:window.scrollTo(0,0)" >TOP</a>
@@ -55,9 +58,9 @@
         </div>
     </div>
     <!-- Third-Party JS -->
-    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+    <script type="text/javascript" src="http://www.itmind.net/bower_components/geopattern/js/geopattern.min.js"></script>
     <!-- My JS -->
-    <script type="text/javascript" src="/assets/js/script.js"></script>
+    <script type="text/javascript" src="http://www.itmind.net/assets/js/script.js"></script>
     {% for javascript in page.javascript %}
     <script src="/assets/js/{{javascript}}"></script>
     {% endfor %}
