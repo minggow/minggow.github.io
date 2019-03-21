@@ -133,35 +133,35 @@ navs:
 # labels. my blog key words
 labels:
 
-  -
-    href: /fastdfs.html
-    label: FastDFS
-    target: _blank
-
-  -
-    href: /mongodb.html
-    label: MongoDB
-    target: _blank
-
-  -
-    href: /docker.html
-    label: Docker
-    target: _blank
-
-  -
-    href: /open-source.html
-    label: Code  
-    target: _blank
-
-  -
-    href: /it.html
-    label: It 
-    target: _blank
-
-  -
-    href: /python.html
-    label: Python  
-    target: _blank
+#  -
+#    href: /fastdfs.html
+#    label: FastDFS
+#    target: _blank
+#
+#  -
+#    href: /mongodb.html
+#    label: MongoDB
+#    target: _blank
+#
+#  -
+#    href: /docker.html
+#    label: Docker
+#    target: _blank
+#
+#  -
+#    href: /open-source.html
+#    label: Code
+#    target: _blank
+#
+#  -
+#    href: /it.html
+#    label: It
+#    target: _blank
+#
+#  -
+#    href: /python.html
+#    label: Python
+#    target: _blank
 
 
 # selected articles
