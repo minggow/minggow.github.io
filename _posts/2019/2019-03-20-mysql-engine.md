@@ -1,9 +1,9 @@
 ---
 layout: post
-title: MySQL 存储引擎
+title: MySQL存储引擎
 category: other
 tags: [other]
-excerpt:  MySQL 存储引擎
+excerpt:  MySQL存储引擎
 ---
 
 ## MySQL 存储引擎是什么
