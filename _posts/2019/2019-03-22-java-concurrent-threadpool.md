@@ -116,7 +116,7 @@ TERMINATED -- 对应的高3位值是011。
 
 ### execute方法实现
 
-```
+```java
     /**
      * Executes the given task sometime in the future.  The task
      * may execute in a new thread or in an existing pooled thread.
@@ -178,7 +178,7 @@ TERMINATED -- 对应的高3位值是011。
 
 ### addWorker的方法
 
-```
+```java
     /**
      * Checks if a new worker can be added with respect to current
      * pool state and the given bound (either core or maximum). If so,
@@ -282,7 +282,7 @@ TERMINATED -- 对应的高3位值是011。
 
 ### Worker类
 Worker类是ThreadPoolExecutor中的内部类，实现了Runnable接口，继承了AQS
-```
+```java
     /**
      * Class Worker mainly maintains interrupt control state for
      * threads running tasks, along with other minor bookkeeping.
@@ -471,7 +471,7 @@ Worker类是ThreadPoolExecutor中的内部类，实现了Runnable接口，继承
 ```
 
 ### getTask方法实现
-```
+```java
     /**
      * Performs blocking or timed wait for a task, depending on
      * current configuration settings, or returns null if this worker
