@@ -148,11 +148,11 @@ labels:
 #    label: Docker
 #    target: _blank
 #
-#  -
-#    href: /open-source.html
-#    label: Code
-#    target: _blank
-#
+  -
+    href: /open-source.html
+    label: Code
+    target: _blank
+
 #  -
 #    href: /it.html
 #    label: It
