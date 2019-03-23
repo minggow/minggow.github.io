@@ -82,9 +82,9 @@ private static int runStateOf(int c)     { return c & ~CAPACITY; }
 private static int workerCountOf(int c)  { return c & CAPACITY; }
 private static int ctlOf(int rs, int wc) { return rs | wc; }
 ```
-runStateOf：获取运行状态；
-workerCountOf：获取活动线程数；
-ctlOf：获取运行状态和活动线程数的值。
+- runStateOf：获取运行状态；
+- workerCountOf：获取活动线程数；
+- ctlOf：获取运行状态和活动线程数的值。
 
 
 
