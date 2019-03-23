@@ -23,7 +23,7 @@ excerpt:  Java线程池
 问题：
 通过上面线程池的介绍，线程池避免了线程的频繁销毁和创建，这个是如何做到的呢？
 
-## ThreadPoolExecutor分析
+## ThreadPoolExecutor说明
 
 ### 重要概念
 ThreadPoolExecutor继承自AbstractExecutorService，也是实现了ExecutorService接口。
@@ -161,7 +161,7 @@ handler：它是RejectedExecutionHandler类型的变量，表示线程池的饱�
     - DiscardPolicy：直接丢弃任务；
 
 
-## 代码走读
+## 代码细节走读
 > 注：JDK版本：jdk1.8.0_111，带中文数字编号的中文注释是我添加的
 
 ### execute方法实现
