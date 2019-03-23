@@ -833,7 +833,7 @@ getTask方法用来从阻塞队列中取任务，代码如下：
 
 ```
 至此，processWorkerExit执行完之后，工作线程被销毁，以上就是整个工作线程的生命周期，从execute方法开始，Worker使用ThreadFactory创建新的工作线程，runWorker通过getTask获取任务，然后执行任务，如果getTask返回null，进入processWorkerExit方法，整个线程结束，如图所示:
-![threadpool-lifecycle](/assert/images/2019/03/java_concurrent_threadpool-lifecycle.png)
+![threadpool-lifecycle](/assets/images/2019/03/java_concurrent_threadpool-lifecycle.png)
 
 ### tryTerminate方法
 tryTerminate方法根据线程池状态进行判断是否结束线程池，代码如下：
@@ -937,7 +937,8 @@ shutdown方法要将线程池切换到SHUTDOWN状态，并调用interruptIdleWor
     }
 
 ```
-下面是[深入理解Java线程池](http://www.ideabuffer.cn/2017/04/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor/)中的问题探究，非常深入，细节非常到位，👍：
+下面是[深入理解Java线程池](http://www.ideabuffer.cn/2017/04/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor/)中的问题探究，非常深入，细节非常到位，👍
+
 这里思考一个问题：在runWorker方法中，执行任务时对Worker对象w进行了lock操作，为什么要在执行任务的时候对每个工作线程都加锁呢？分析过程：
 - 在getTask方法中，如果这时线程池的状态是SHUTDOWN并且workQueue为空，那么就应该返回null来结束这个工作线程，而使线程池进入SHUTDOWN状态需要调用shutdown方法；
 - shutdown方法会调用interruptIdleWorkers来中断空闲的线程，interruptIdleWorkers持有mainLock，会遍历workers来逐个判断工作线程是否空闲。但getTask方法中没有mainLock；
