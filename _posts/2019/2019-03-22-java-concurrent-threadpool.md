@@ -1185,7 +1185,7 @@ timed为false表示取任务不超时（阻塞去任务），调用workQueue.tak
                     Thread.sleep(2000);
                     System.out.println("线程：" + Thread.currentThread().getName() + "结束sleep");
                 } catch (Exception e) {
-                    System.out.println("execute end");
+                    System.out.println("执行异常");
                 }
             });
         }
@@ -1194,10 +1194,10 @@ timed为false表示取任务不超时（阻塞去任务），调用workQueue.tak
          * 主线程sleep 40秒
          */
         try {
-            System.out.println("main thread sleep");
+            System.out.println("主线程开始 sleep");
             Thread.sleep(1000 * 40);
         } catch (Exception e) {
-            System.out.println("main thread end");
+            System.out.println("主线程结束 sleep");
         }
     }
 ```
