@@ -162,7 +162,7 @@ handler：它是RejectedExecutionHandler类型的变量，表示线程池的饱�
 
 
 ## 代码细节走读
-> 注：JDK版本：jdk1.8.0_111，带中文数字编号的中文注释是我添加的
+> 注：JDK版本：jdk1.8.0_111，其中的包含 /* 中文注释讲解 */ 
 
 ### execute方法实现
 
