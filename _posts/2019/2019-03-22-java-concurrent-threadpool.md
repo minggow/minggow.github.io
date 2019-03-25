@@ -1107,6 +1107,7 @@ Q1:为什么要用线程池，有哪些优点？
 - 降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 
 - 提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。 
 - 提高线程的可管理性
+
 Q2:核心线程是如何一直保持的？能否让核心线程销毁呢？
 getTask方法中
 ```java
@@ -1124,6 +1125,7 @@ getTask方法中
 如果当前线程数小于或者等于核心线程数（allowCoreThreadTimeOut默认false）,则timed为false。
 timed为false表示取任务不超时（阻塞去任务），调用workQueue.take执行
 设置allowCoreThreadTimeOut(true) 就能使核心线程销毁的呢，前提是必须设置setKeepAliveTime，否则线程超时时间没有，无法设置
+
 ```java
     /**
      * Sets the policy governing whether core threads may time out and
@@ -1153,8 +1155,9 @@ timed为false表示取任务不超时（阻塞去任务），调用workQueue.tak
             if (value)
                 interruptIdleWorkers();
         }
-    
+   
 ```
+
 通过上面的分析，猜测一下这个测试方法的结果：
 ```java
     @Test
